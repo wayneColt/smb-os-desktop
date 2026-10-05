@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"os"
 	"path/filepath"
+	"runtime"
 	"strings"
 	"testing"
 	"time"
@@ -207,7 +208,24 @@ func TestAppendFollowsAReplacedFile(t *testing.T) {
 	b, _ := os.ReadFile(path)
 	tmp := path + ".tmp"
 	_ = os.WriteFile(tmp, b, 0o600)
+	defer os.Remove(tmp)
 	if err := os.Rename(tmp, path); err != nil {
+		if runtime.GOOS == "windows" {
+			// Windows refuses to replace a file another process holds open, so an
+			// editor or a sync tool cannot swap receipts.jsonl under a running aios.
+			// The chain must still verify and keep growing; following a replaced
+			// file is the Unix half of this guarantee.
+			if res := VerifyFile(path); !res.OK || res.Count != 2 {
+				t.Fatalf("after a refused replacement: %+v", res)
+			}
+			if _, err := l.Append(Record{Kind: KindRun, Agent: "a", Summary: "after refused replace"}); err != nil {
+				t.Fatal(err)
+			}
+			if res := VerifyFile(path); !res.OK || res.Count != 3 {
+				t.Fatalf("append after a refused replacement: %+v", res)
+			}
+			return
+		}
 		t.Fatal(err)
 	}
 	if _, err := l.Append(Record{Kind: KindRun, Agent: "a", Summary: "after replace"}); err != nil {
