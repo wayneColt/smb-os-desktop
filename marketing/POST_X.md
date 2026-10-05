@@ -73,3 +73,9 @@ posted at (UTC):
 post URL:
 posted text identical to post.txt (yes/no):
 ```
+
+## What went out (2026-10-05)
+The posting path only accepts a link to a dated receipt page (`/posts/<date>-<slug>/`), so the first text, which
+linked the solutions page, was refused and nothing was posted. `post.txt` now holds the text that went out:
+the same message with the receipt-page link, "0.1" and one comma trimmed to stay within 280 raw characters
+(249 weighted). Posted: https://x.com/wayne__colt/status/2107155554179088487
