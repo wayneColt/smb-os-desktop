@@ -1,0 +1,6 @@
+/* Self-hosted faces (SIL OFL 1.1, licences beside the files). No third-party font host:
+ * the desktop's CSP is default-src 'self', and the local shell runs offline. */
+@font-face { font-family: 'Geist'; src: url('fonts/Geist-Variable.woff2') format('woff2'); font-weight: 100 900; font-style: normal; font-display: swap; }
+@font-face { font-family: 'IBM Plex Mono'; src: url('fonts/IBMPlexMono-400.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'IBM Plex Mono'; src: url('fonts/IBMPlexMono-500.woff2') format('woff2'); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'IBM Plex Mono'; src: url('fonts/IBMPlexMono-600.woff2') format('woff2'); font-weight: 600; font-style: normal; font-display: swap; }

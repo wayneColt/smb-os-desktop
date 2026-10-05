@@ -1,0 +1,98 @@
+/* Apex design system 2.0 · calibrated 2026-10-04
+ * Style: the Apex design file (paper ground, ink type, one signal colour; dark slabs
+ * only for what sits under the kernel boundary; flat, bordered, nothing glows).
+ * Light is the source theme. Dark is calibrated from the slab: every text pair is >= 4.5:1,
+ * every control border and lamp edge >= 3:1, in both themes.
+ * Names: --wx-* are the design file's own token names; nothing here is invented without a note.
+ */
+:root {
+  color-scheme: light;
+  /* Ground and surfaces */
+  --wx-paper: #EEEEE8;        /* ground */
+  --wx-surface: #F7F7F3;      /* cards, panels, instrument bodies */
+  --wx-sheet: #FFFFFF;        /* active card, inputs, the one thing in focus */
+  --wx-well: #E6E6DF;         /* table header, dropped rows */
+  --wx-hair: #D6D6CE;         /* rest border */
+  --wx-hair-2: #E2E2DA;       /* row divider inside a card */
+  --wx-grid: #16191C0A;       /* desk grid line */
+  /* Type */
+  --wx-ink: #16191C;          /* type, active border */
+  --wx-ink-2: #4A4F55;        /* secondary type (7.1:1 on paper) */
+  --wx-ink-3: #62676D;        /* captions; calibrated from the file's #7A7F85, which was 3.4:1 */
+  --wx-line-quiet: #80858A;   /* dashed NO_SIGNAL / Unreported edges, ghost control edge (3.2:1) */
+  /* Below the kernel boundary */
+  --wx-slab: #16191C;
+  --wx-slab-ink: #E9EAE4;
+  --wx-slab-ink-2: #9BA1A6;
+  --wx-slab-line: #2E353B;
+  /* The one signal: the operator's decision, tier 2, the stop control */
+  --wx-signal: #EE5A2B;
+  --wx-signal-hover: #F06C40;
+  --wx-signal-deep: #C8431A;
+  --wx-on-signal: #16191C;    /* 4.9:1 on signal */
+  /* Evidence */
+  --wx-blue: #D4E9F5;         /* Reported · tier 1 · PASS · parked */
+  --wx-blue-line: #4C8DB5;
+  --wx-blue-ink: #1F4F6E;
+  --wx-lime: #E3EDB4;         /* Spiked · VERIFIED · on · ran */
+  --wx-lime-line: #74872A;   /* calibrated from the file's #8EA33A, which was 2.4:1 on paper */
+  --wx-lime-ink: #3F4D10;
+
+  /* Type families (self-hosted; see fonts.css) */
+  --wx-sans: 'Geist', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --wx-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Type scale (size / weight / tracking / leading) */
+  --wx-h1: 800 56px/1.02 var(--wx-sans);          --wx-h1-track: -0.035em;
+  --wx-display: 800 40px/1.05 var(--wx-sans);     --wx-display-track: -0.035em;
+  --wx-head: 800 24px/1.1 var(--wx-sans);         --wx-head-track: -0.025em;
+  --wx-title: 700 22px/1.2 var(--wx-sans);        --wx-title-track: -0.02em;
+  --wx-lead: 600 15px/1.3 var(--wx-sans);
+  --wx-label: 600 13px/1.35 var(--wx-sans);
+  --wx-body: 400 13px/1.5 var(--wx-sans);
+  --wx-code: 400 11px/1.6 var(--wx-mono);
+  --wx-eyebrow: 600 10px/1.4 var(--wx-mono);      --wx-eyebrow-track: 0.08em;
+
+  /* Spacing */
+  --wx-s1: 4px; --wx-s2: 6px; --wx-s3: 8px; --wx-s4: 10px; --wx-s5: 12px;
+  --wx-s6: 14px; --wx-s7: 16px; --wx-s8: 24px; --wx-s9: 32px; --wx-s10: 56px;
+  --wx-grid-pitch: 32px;
+  --wx-page-max: 1320px;
+  --wx-tap: 44px;             /* minimum touch target */
+
+  /* Edges */
+  --wx-radius-tag: 3px;
+  --wx-radius-inner: 4px;
+  --wx-radius-control: 5px;
+  --wx-radius: 6px;           /* cards, buttons, inputs */
+  --wx-radius-window: 8px;    /* windows, instruments */
+  --wx-radius-frame: 10px;    /* the desktop frame */
+  --wx-pill: 999px;
+  --wx-border-rest: 1px solid var(--wx-hair);
+  --wx-border-active: 1.5px solid var(--wx-ink);
+  --wx-focus: 2px solid var(--wx-ink);
+}
+
+/* Night desk: calibrated from the slab. Signal and evidence edges keep their hue. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --wx-paper: #121416; --wx-surface: #191C1F; --wx-sheet: #20242A; --wx-well: #1C2024;
+    --wx-hair: #30363C; --wx-hair-2: #262B30; --wx-grid: #E9EAE40A;
+    --wx-ink: #E9EAE4; --wx-ink-2: #B4B9BD; --wx-ink-3: #9BA1A6; --wx-line-quiet: #6B7177;
+    --wx-slab: #08090A; --wx-slab-ink: #E9EAE4; --wx-slab-ink-2: #9BA1A6; --wx-slab-line: #2E353B;
+    --wx-blue: #173247; --wx-blue-ink: #CFE6F4;
+    --wx-lime: #2B3510; --wx-lime-line: #8EA33A; --wx-lime-ink: #E3EDB4;
+    --wx-focus: 2px solid #E9EAE4;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --wx-paper: #121416; --wx-surface: #191C1F; --wx-sheet: #20242A; --wx-well: #1C2024;
+  --wx-hair: #30363C; --wx-hair-2: #262B30; --wx-grid: #E9EAE40A;
+  --wx-ink: #E9EAE4; --wx-ink-2: #B4B9BD; --wx-ink-3: #9BA1A6; --wx-line-quiet: #6B7177;
+  --wx-slab: #08090A; --wx-slab-ink: #E9EAE4; --wx-slab-ink-2: #9BA1A6; --wx-slab-line: #2E353B;
+  --wx-blue: #173247; --wx-blue-ink: #CFE6F4;
+  --wx-lime: #2B3510; --wx-lime-line: #8EA33A; --wx-lime-ink: #E3EDB4;
+  --wx-focus: 2px solid #E9EAE4;
+}

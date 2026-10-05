@@ -1,0 +1,152 @@
+/* Apex design system 2.0 · components. Requires tokens.css (and fonts.css).
+ * Every class is wx-*. Colour means state: a fill never appears without its word beside it. */
+
+.wx-base { background: var(--wx-paper); color: var(--wx-ink); font: var(--wx-body); -webkit-font-smoothing: antialiased; font-variant-numeric: tabular-nums; }
+.wx-base *, .wx-base *::before, .wx-base *::after { box-sizing: border-box; }
+.wx-base a { color: var(--wx-ink); text-decoration: underline; text-underline-offset: 2px; }
+.wx-base a:hover { color: var(--wx-signal-deep); }
+.wx-base ::selection { background: var(--wx-signal); color: var(--wx-on-signal); }
+.wx-base :focus-visible { outline: var(--wx-focus); outline-offset: 2px; }
+
+/* Type */
+.wx-h1 { font: var(--wx-h1); letter-spacing: var(--wx-h1-track); margin: 0; text-wrap: pretty; }
+.wx-display { font: var(--wx-display); letter-spacing: var(--wx-display-track); margin: 0; text-wrap: pretty; }
+.wx-head { font: var(--wx-head); letter-spacing: var(--wx-head-track); margin: 0; }
+.wx-title { font: var(--wx-title); letter-spacing: var(--wx-title-track); margin: 0; }
+.wx-lead { font: var(--wx-lead); margin: 0; }
+.wx-label { font: var(--wx-label); }
+.wx-body { font: var(--wx-body); color: var(--wx-ink-2); }
+.wx-mono { font-family: var(--wx-mono); font-size: 11px; }
+.wx-caption { font-family: var(--wx-mono); font-size: 10.5px; color: var(--wx-ink-3); }
+.wx-eyebrow { font: var(--wx-eyebrow); letter-spacing: var(--wx-eyebrow-track); text-transform: uppercase; }
+
+/* Surfaces */
+.wx-card { background: var(--wx-surface); border: var(--wx-border-rest); border-radius: var(--wx-radius); padding: var(--wx-s6); }
+.wx-card.is-active { background: var(--wx-sheet); border: var(--wx-border-active); }
+.wx-card.is-pending { border: 1px dashed var(--wx-line-quiet); }
+.wx-slab { background: var(--wx-slab); color: var(--wx-slab-ink); border-radius: var(--wx-radius-inner); padding: var(--wx-s5) var(--wx-s6); font: var(--wx-code); white-space: pre-wrap; }
+.wx-slab .wx-caption, .wx-slab small { color: var(--wx-slab-ink-2); }
+
+/* Chips: evidence tags, verdicts, tiers (mono 10.5px, radius 3) */
+.wx-tag { display: inline-flex; align-items: center; gap: 4px; font-family: var(--wx-mono); font-size: 10.5px; line-height: 1.5; padding: 1px 7px; border-radius: var(--wx-radius-tag); border: 1px solid var(--wx-ink); color: var(--wx-ink); background: transparent; white-space: nowrap; }
+.wx-tag.is-strong { font-weight: 600; }
+.wx-tag.reported, .wx-tag.pass, .wx-tag.tier1 { background: var(--wx-blue); border-color: var(--wx-blue-line); color: var(--wx-blue-ink); }
+.wx-tag.spiked, .wx-tag.verified, .wx-tag.hit { background: var(--wx-lime); border-color: var(--wx-lime-line); color: var(--wx-lime-ink); }
+.wx-tag.inferred, .wx-tag.notproven, .wx-tag.tier2, .wx-tag.miss, .wx-tag.refused { background: var(--wx-signal); border-color: var(--wx-signal-deep); color: var(--wx-on-signal); }
+.wx-tag.unreported, .wx-tag.nosignal, .wx-tag.tier0 { border: 1px dashed var(--wx-line-quiet); color: var(--wx-ink-2); }
+.wx-tag.tier0 { border-style: solid; }
+.wx-tag.hold, .wx-tag.yours { background: var(--wx-sheet); }
+.wx-tag.dead { background: var(--wx-slab); border-color: var(--wx-slab); color: var(--wx-slab-ink); }
+
+/* Lamps: lifecycle state. Always beside its word. */
+.wx-lamp { display: inline-block; width: 8px; height: 8px; border-radius: 50%; border: 1px solid var(--wx-ink); background: var(--wx-sheet); flex: 0 0 8px; vertical-align: middle; }
+.wx-lamp.on { background: var(--wx-lime); border-color: var(--wx-lime-line); }
+.wx-lamp.parked { background: var(--wx-blue); border-color: var(--wx-blue-line); }
+.wx-lamp.off { background: var(--wx-sheet); border-color: var(--wx-ink-2); }
+.wx-lamp.starved { background: var(--wx-signal); border-color: var(--wx-signal-deep); }
+.wx-lamp.degraded { background: var(--wx-sheet); border: 2px solid var(--wx-signal); }
+.wx-lamp.unknown { background: transparent; border: 1px dashed var(--wx-line-quiet); }
+.wx-lamp.now { background: var(--wx-signal); border-color: var(--wx-ink); }
+.wx-lamp.done { background: var(--wx-ink); border-color: var(--wx-ink); }
+
+/* Buttons */
+.wx-btn { font: 600 13px/1.2 var(--wx-sans); min-height: 36px; padding: 9px 16px; border-radius: var(--wx-radius); border: 1px solid var(--wx-ink); background: var(--wx-sheet); color: var(--wx-ink); cursor: pointer; }
+.wx-btn:hover { background: var(--wx-paper); }
+.wx-btn.is-signal { background: var(--wx-signal); border-color: var(--wx-signal-deep); color: var(--wx-on-signal); }
+.wx-btn.is-signal:hover { background: var(--wx-signal-hover); }
+.wx-btn.is-ink { background: var(--wx-ink); border-color: var(--wx-ink); color: var(--wx-paper); }
+.wx-btn.is-ink:hover { opacity: .92; }
+.wx-btn.is-ghost { font-weight: 400; font-size: 12px; min-height: 32px; padding: 6px 12px; border-radius: var(--wx-pill); border-color: var(--wx-line-quiet); background: transparent; }
+.wx-btn.is-ghost:hover { border-color: var(--wx-ink); }
+.wx-btn.is-mono { font: 400 11px/1.2 var(--wx-mono); padding: 6px 10px; border-radius: var(--wx-radius-control); min-height: 30px; }
+.wx-btn:disabled { opacity: .55; cursor: not-allowed; }
+.wx-btn.is-tap { min-height: var(--wx-tap); }
+/* The halt control: one per screen, always in the header */
+.wx-stop { font: 600 12px/1.2 var(--wx-sans); padding: 7px 14px; min-height: 32px; border-radius: var(--wx-pill); border: 1.5px solid var(--wx-ink); background: var(--wx-signal); color: var(--wx-on-signal); cursor: pointer; }
+.wx-stop[aria-pressed="true"] { background: var(--wx-sheet); }
+
+/* Inputs */
+.wx-input { font: 400 13px/1.3 var(--wx-sans); padding: 9px 12px; min-height: 38px; border: 1px solid var(--wx-ink); border-radius: var(--wx-radius); background: var(--wx-sheet); color: var(--wx-ink); width: 100%; min-width: 0; }
+.wx-input::placeholder { color: var(--wx-ink-3); }
+.wx-field { display: flex; flex-direction: column; gap: var(--wx-s2); }
+.wx-field > label { font: var(--wx-label); }
+.wx-composer { display: flex; gap: var(--wx-s3); align-items: stretch; }
+.wx-composer .wx-btn { font: 400 11px/1 var(--wx-mono); background: var(--wx-ink); color: var(--wx-paper); border: 0; padding: 0 14px; }
+
+/* Header pill (resident / gate statements) */
+.wx-pill { font-family: var(--wx-mono); font-size: 10px; border: 1px solid var(--wx-ink); padding: 1px 7px; border-radius: var(--wx-pill); white-space: nowrap; }
+.wx-pill.is-ink { background: var(--wx-ink); color: var(--wx-paper); }
+
+/* Windows and instruments */
+.wx-window { background: var(--wx-surface); border: 1.5px solid var(--wx-ink); border-radius: var(--wx-radius-window); overflow: hidden; display: flex; flex-direction: column; min-width: 0; }
+.wx-window > .wx-bar { height: 34px; display: flex; align-items: center; gap: var(--wx-s4); padding: 0 6px 0 12px; border-bottom: 1px solid var(--wx-ink); background: var(--wx-surface); font: 500 11px/1 var(--wx-mono); }
+.wx-window > .wx-bar.reported { background: var(--wx-blue); color: var(--wx-blue-ink); }
+.wx-window > .wx-bar.spiked { background: var(--wx-lime); color: var(--wx-lime-ink); }
+.wx-window > .wx-bar.signal { background: var(--wx-signal); color: var(--wx-on-signal); }
+.wx-window > .wx-bar.well { background: var(--wx-well); }
+.wx-window > .wx-bar .wx-title-text { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.wx-winbtn { width: 22px; height: 20px; border: 1px solid var(--wx-ink); background: var(--wx-sheet); color: var(--wx-ink); border-radius: var(--wx-radius-inner); display: inline-flex; align-items: center; justify-content: center; font-size: 10px; padding: 0; cursor: pointer; }
+.wx-window > .wx-body { flex: 1; overflow: auto; padding: 18px; display: flex; flex-direction: column; gap: var(--wx-s5); }
+.wx-window.is-slab { background: var(--wx-slab); color: var(--wx-slab-ink); border-color: var(--wx-slab); }
+.wx-window.is-slab > .wx-bar { background: var(--wx-slab); color: var(--wx-slab-ink); border-bottom-color: var(--wx-slab-line); }
+
+/* The desk and its chrome */
+.wx-desk { background-color: var(--wx-paper); background-image: linear-gradient(var(--wx-grid) 1px, transparent 1px), linear-gradient(90deg, var(--wx-grid) 1px, transparent 1px); background-size: var(--wx-grid-pitch) var(--wx-grid-pitch); }
+.wx-topbar { height: 40px; display: flex; align-items: center; gap: var(--wx-s4); padding: 0 12px; border-bottom: 1px solid var(--wx-ink); background: var(--wx-surface); }
+.wx-taskbar { height: 44px; display: flex; align-items: center; gap: var(--wx-s2); padding: 0 8px; background: var(--wx-slab); color: var(--wx-slab-ink); }
+.wx-taskbar .wx-brand { font: 700 12px/1 var(--wx-sans); background: var(--wx-signal); color: var(--wx-on-signal); padding: 8px 12px; border-radius: var(--wx-radius-control); }
+.wx-taskbar .wx-task { font: 400 10.5px/1 var(--wx-mono); background: transparent; color: var(--wx-slab-ink); border: 1px solid #3A4147; padding: 7px 10px; border-radius: var(--wx-radius-control); cursor: pointer; }
+.wx-taskbar .wx-task[aria-current="true"], .wx-taskbar .wx-task.is-active { background: var(--wx-paper); color: var(--wx-ink); }
+.wx-icon { width: 44px; height: 44px; border: 1.5px solid var(--wx-ink); border-radius: var(--wx-radius-window); display: flex; align-items: center; justify-content: center; font: 600 12px/1 var(--wx-mono); background: var(--wx-sheet); color: var(--wx-ink); }
+
+/* Pebble: the one task in hand */
+.wx-pebble { display: flex; flex-direction: column; gap: var(--wx-s3); padding: var(--wx-s6); border-radius: var(--wx-radius); background: var(--wx-surface); border: var(--wx-border-rest); color: var(--wx-ink); text-align: left; font: inherit; }
+.wx-pebble[aria-pressed="true"], .wx-pebble.is-active { background: var(--wx-sheet); border: var(--wx-border-active); }
+.wx-pebble .wx-pebble-meta { display: flex; gap: var(--wx-s3); align-items: center; font: 400 10px/1.4 var(--wx-mono); color: var(--wx-ink-2); }
+.wx-pebble .wx-pebble-title { font: 600 15px/1.3 var(--wx-sans); }
+
+/* Approval card: a note from staff */
+.wx-approval { background: var(--wx-sheet); border: var(--wx-border-active); border-radius: var(--wx-radius-window); padding: 18px; display: flex; flex-direction: column; gap: var(--wx-s5); }
+.wx-approval .wx-from { font: 400 10.5px/1.4 var(--wx-mono); color: var(--wx-ink-2); }
+.wx-approval .wx-ask { font: 700 18px/1.25 var(--wx-sans); letter-spacing: -0.01em; }
+.wx-approval .wx-options { display: flex; flex-direction: column; gap: var(--wx-s3); }
+.wx-approval .wx-options .wx-btn { text-align: left; min-height: var(--wx-tap); }
+.wx-approval .wx-default { font-size: 12px; color: var(--wx-ink-2); }
+
+/* GateInstrument: Declared, Approved, Actuated, Observed. Computed, not animated. */
+.wx-gate { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--wx-s2); }
+.wx-gate .wx-gate-step { border: var(--wx-border-rest); background: var(--wx-sheet); border-radius: var(--wx-radius-inner); padding: var(--wx-s3); display: flex; flex-direction: column; gap: var(--wx-s1); min-width: 0; }
+.wx-gate .wx-gate-step .wx-gate-name { display: flex; align-items: center; gap: var(--wx-s2); font: 600 12px/1.2 var(--wx-sans); }
+.wx-gate .wx-gate-step .wx-gate-receipt { font: 400 10px/1.4 var(--wx-mono); color: var(--wx-ink-2); overflow-wrap: anywhere; }
+.wx-gate .wx-gate-step.is-lit { border: var(--wx-border-active); }
+.wx-gate .wx-gate-step.is-waiting { border: 1.5px solid var(--wx-signal-deep); }
+.wx-gate-tagline { font: 400 10px/1.4 var(--wx-mono); color: var(--wx-ink-3); }
+
+/* TraceLadder: top to silicon. One rung is now. */
+.wx-trace { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--wx-s3); }
+.wx-trace > li { display: grid; grid-template-columns: 14px minmax(0, 1fr); gap: var(--wx-s4); align-items: start; }
+.wx-trace .wx-rung { width: 12px; height: 12px; margin-top: 3px; border-radius: 50%; border: 1.5px solid var(--wx-ink); background: transparent; }
+.wx-trace .wx-rung.done { background: var(--wx-ink); }
+.wx-trace .wx-rung.now { background: var(--wx-signal); }
+.wx-trace .wx-rung.skipped { border-style: dashed; border-color: var(--wx-line-quiet); }
+.wx-trace .wx-rung.stopped { background: var(--wx-sheet); }
+.wx-trace .wx-rung-name { font: 600 13px/1.3 var(--wx-sans); }
+.wx-trace .wx-rung-mark { font: 400 10.5px/1.3 var(--wx-mono); color: var(--wx-ink-2); margin-left: var(--wx-s3); }
+.wx-trace .wx-rung-text { font: 400 12.5px/1.4 var(--wx-sans); color: var(--wx-ink-2); }
+.wx-trace > li.is-slab .wx-rung-name::after { content: " · below the boundary"; font: 400 10px/1 var(--wx-mono); color: var(--wx-ink-3); }
+
+/* Ledger: the return carries verbs */
+.wx-ledger { width: 100%; border-collapse: collapse; font-size: 11.5px; }
+.wx-ledger th { text-align: left; background: var(--wx-well); font: 600 11px/1.3 var(--wx-sans); padding: 8px 12px; }
+.wx-ledger td { padding: 8px 12px; border-top: 1px solid var(--wx-hair-2); vertical-align: top; }
+.wx-ledger td.m { font: 400 10.5px/1.4 var(--wx-mono); overflow-wrap: anywhere; }
+.wx-ledger tr.is-seat td { background: var(--wx-signal); color: var(--wx-on-signal); border-top-color: var(--wx-signal-deep); }
+.wx-ledger tr.is-dropped td { background: var(--wx-well); color: var(--wx-ink-2); }
+
+/* Layout helpers */
+.wx-row { display: flex; gap: var(--wx-s3); align-items: center; flex-wrap: wrap; }
+.wx-stack { display: flex; flex-direction: column; gap: var(--wx-s5); }
+.wx-grid-auto { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: var(--wx-s5); }
+.wx-page { max-width: var(--wx-page-max); margin: 0 auto; padding: 40px 32px 64px; }
+@media (max-width: 600px) { .wx-page { padding: 24px 16px 48px; } .wx-h1 { font-size: 38px; } .wx-display { font-size: 30px; } .wx-gate { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (prefers-reduced-motion: reduce) { .wx-base * { transition: none !important; animation: none !important; } }

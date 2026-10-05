@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SMB OS Desktop: business intelligence that runs on your computer | Catalytic Computing</title>
+<meta name="description" content="Business intelligence that runs on your computer, and answers to you. Agents prepare a franchise's morning numbers, payroll check, bank reconciliation and royalty rollup; anything that moves money waits for your typed APPROVE, once, with a receipt.">
+<meta property="og:title" content="SMB OS Desktop: business intelligence that runs on your computer, and answers to you">
+<meta property="og:description" content="For multi-location franchise owners. Agents read, reconcile, prepare and draft; anything that moves money waits for your typed APPROVE, once, with a receipt. One download; version 0.1.0 runs on fictional demo data.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://waynecolt.com/solutions/smb-os-desktop/">
+<meta property="og:image" content="https://waynecolt.com/solutions/smb-os-desktop/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The Today window of SMB OS Desktop for Kestrel Auto Care, a fictional auto service franchise: the morning brief headline, a line for each location, the measures off target worst first and KPI tiles against target, with desktop icons on the left and the dock along the bottom reading No approvals waiting and AI model off.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SMB OS Desktop: business intelligence that runs on your computer, and answers to you">
+<meta name="twitter:description" content="Agents read, reconcile, prepare and draft; anything that moves money waits for your typed APPROVE, once, with a receipt. Version 0.1.0 runs on fictional demo data.">
+<meta name="twitter:image" content="https://waynecolt.com/solutions/smb-os-desktop/og.png">
+<meta name="twitter:image:alt" content="The Today window of SMB OS Desktop for Kestrel Auto Care, a fictional auto service franchise: the morning brief headline, a line for each location, the measures off target worst first and KPI tiles against target, with desktop icons on the left and the dock along the bottom reading No approvals waiting and AI model off.">
+<link rel="canonical" href="https://waynecolt.com/solutions/smb-os-desktop/">
+<style>@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=IBM+Plex+Mono:wght@400;500;700&display=swap');
+:root{--stock:#E8E0D4;--stock-lt:#F0EBE3;--void:#0A0A0C;--optic:#E8450A;--cyan:#00B8D4;--magenta:#C2185B;--chrome:#9E9E9E;--terminal:#00C853;--line:rgba(10,10,12,0.10);--line-med:rgba(10,10,12,0.18)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--stock);color:var(--void);font-family:'IBM Plex Mono',monospace;font-size:14px;line-height:1.65;-webkit-font-smoothing:antialiased}
+body::before{content:'';position:fixed;top:0;left:0;right:0;height:4px;z-index:300;background:linear-gradient(90deg,var(--cyan) 0%,var(--cyan) 16.66%,var(--magenta) 16.66%,var(--magenta) 33.33%,var(--optic) 33.33%,var(--optic) 50%,var(--void) 50%,var(--void) 66.66%,var(--terminal) 66.66%,var(--terminal) 83.33%,var(--chrome) 83.33%,var(--chrome) 100%)}
+a{color:inherit}
+.hdr{display:flex;justify-content:space-between;align-items:center;padding:18px 40px;border-bottom:1px solid var(--line)}
+.hdr-id{font-size:10px;letter-spacing:.18em;color:var(--optic)}
+.hdr a{font-size:10px;color:var(--chrome);text-decoration:none;letter-spacing:.12em;text-transform:uppercase}
+.hdr a:hover{color:var(--void)}
+main{max-width:760px;margin:0 auto;padding:56px 24px 100px}
+.crumb{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--chrome);margin-bottom:18px}
+.crumb a{color:var(--optic);text-decoration:none}
+.type-badge{display:inline-block;font-size:8px;letter-spacing:.18em;text-transform:uppercase;padding:3px 8px;border:1px solid rgba(232,69,10,0.4);color:var(--optic);background:rgba(232,69,10,0.06);margin-bottom:16px}
+h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(30px,5vw,44px);line-height:1.05;letter-spacing:-.02em;margin-bottom:8px}
+.byline{font-size:11px;color:var(--chrome);letter-spacing:.06em;margin:10px 0 8px}
+h2{font-family:'Space Grotesk',sans-serif;font-size:24px;color:var(--void);font-weight:700;margin-top:48px;margin-bottom:18px}
+h3{font-family:'Space Grotesk',sans-serif;font-size:16px;margin:30px 0 12px}
+p{margin:0 0 16px} strong{font-weight:700} em{color:#4a4a52}
+a{color:var(--optic)}
+code{font-family:'IBM Plex Mono',monospace;background:var(--stock-lt);padding:1px 5px;border:1px solid var(--line);font-size:12.5px}
+hr{border:0;border-top:1px solid var(--line);margin:36px 0}
+table{border-collapse:collapse;width:100%;margin:18px 0;font-size:12.5px}
+th,td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}
+th{background:var(--stock-lt);font-family:'Space Grotesk',sans-serif}
+ul,ol{margin:0 0 16px 22px}li{margin-bottom:6px}
+.foot{border-top:1px solid var(--line);margin-top:50px;padding-top:18px;font-size:11px;color:var(--chrome)}
+.foot a{color:var(--optic)}
+.lede{font-size:15.5px;line-height:1.7}
+.dl{background:var(--stock-lt);border:1px solid var(--line-med);border-left:3px solid var(--optic);padding:22px 22px 18px;margin:30px 0 34px}
+.dl-label{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--optic);margin-bottom:12px}
+.btn{display:inline-block;background:var(--void);color:var(--stock);text-decoration:none;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:17px;padding:13px 22px;border:1px solid var(--void);letter-spacing:-.01em}
+.btn:hover{background:var(--optic);border-color:var(--optic);color:var(--void)}
+.btn small{display:block;font-family:'IBM Plex Mono',monospace;font-weight:400;font-size:11px;letter-spacing:.02em;opacity:.8;margin-top:2px}
+.dl-primary{margin-bottom:14px}
+.dl-hint{font-size:11.5px;color:#4a4a52;margin:10px 0 0}
+.dl-all{font-size:12.5px;margin:16px 0 0}
+.dl-all li{margin-bottom:4px}
+.dl-all .k{display:inline-block;min-width:200px;color:#4a4a52}
+.dl-all a,.dl-meta a,.btn small{overflow-wrap:anywhere}
+.dl-meta{font-size:11.5px;color:#4a4a52;margin-top:12px}
+pre{font-family:'IBM Plex Mono',monospace;background:var(--void);color:var(--stock);padding:12px 14px;font-size:12px;line-height:1.5;overflow-x:auto;margin:6px 0 14px;white-space:pre}
+.term-label{font-size:11px;color:#4a4a52;margin-top:14px}
+.phone-note{display:none;border:1px solid var(--line-med);background:#fff;padding:16px 16px 6px;margin-bottom:6px}
+.phone-note strong{font-family:'Space Grotesk',sans-serif;font-size:17px;display:block;margin-bottom:6px}
+.phone-note button{font:inherit;font-size:12.5px;background:var(--void);color:var(--stock);border:0;padding:9px 14px;margin:4px 8px 10px 0;cursor:pointer}
+figure{margin:28px 0}
+figure img{display:block;width:100%;height:auto;border:1px solid var(--line-med);background:var(--stock-lt)}
+figcaption{font-size:11px;color:var(--chrome);margin-top:8px;line-height:1.6}
+.shots{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0 28px}
+.shots figure{margin:0}
+.receipt-line{font-size:12.5px;border-top:1px solid var(--line);padding-top:18px;margin-top:36px}
+@media(max-width:640px){.hdr{padding:16px 20px}main{padding:36px 18px 80px}.shots{grid-template-columns:1fr}.dl{padding:18px 16px 14px}.dl-all .k{min-width:0;display:block}table{font-size:11.5px}th,td{padding:6px 7px}}
+@media (hover:none) and (pointer:coarse) and (max-width:900px){.phone-note{display:block}.dl-primary,.dl-hint{display:none}}
+body.is-phone .phone-note{display:block}body.is-phone .dl-primary,body.is-phone .dl-hint{display:none}
+body.is-computer .phone-note{display:none}body.is-computer .dl-primary{display:block}</style>
+</head>
+<body>
+<header class="hdr"><div class="hdr-id">● CATALYTIC COMPUTING</div><a href="/solutions/">← Solutions</a></header>
+<main>
+<div class="crumb"><a href="/">waynecolt.com</a> / <a href="/solutions/">solutions</a> / smb-os-desktop</div>
+<div class="type-badge">ARTICLE</div>
+<h1>SMB OS Desktop: business intelligence that runs on your computer, and answers to you</h1>
+<div class="byline">By WayneColt · 2026-10-05 · version <span class="ver">0.1.0</span></div>
+<hr />
+
+<p class="lede">For the owner of a small multi-location franchise. Agents on your own computer prepare the
+morning numbers for every location, check payroll against the schedule, reconcile the bank, draft
+reminders for late invoices and do the franchise rollup. They read, reconcile, prepare and draft.
+Anything that would move money, send something outside or can't be undone waits at a gate only you can
+open: one exact action, once, with a receipt.</p>
+<p>It is one file. Double-click it and the desktop opens in your browser, with the data in a folder on
+your machine. Version 0.1.0 runs on two fictional demo businesses, an auto service franchise and a home
+care franchise. It does not connect to your own systems yet.</p>
+
+<section class="dl" id="download" aria-labelledby="dl-h">
+  <div class="dl-label" id="dl-h">Download · free · MIT license</div>
+
+  <div class="phone-note" role="note">
+    <strong>Download it on your computer.</strong>
+    <p>SMB OS Desktop runs on Windows, macOS and Linux, not on a phone or tablet. Open this page on
+    your computer to get the file, or send yourself the link:</p>
+    <button type="button" data-share>Send me the link</button><button type="button" data-copy>Copy link</button>
+  </div>
+
+  <div class="dl-primary" hidden>
+    <a class="btn" id="dl-btn" href="https://github.com/wayneColt/smb-os-desktop/releases/latest">Download<small id="dl-sub">all systems</small></a>
+  </div>
+  <p class="dl-hint" id="dl-hint" hidden></p>
+
+  <ul class="dl-all" aria-label="All downloads, latest version">
+    <li><span class="k">Windows (x86-64)</span> <a data-asset="windows_amd64" href="https://github.com/wayneColt/smb-os-desktop/releases/latest/download/smb-os-desktop_windows_amd64.zip">smb-os-desktop_windows_amd64.zip</a></li>
+    <li><span class="k">Mac, Apple silicon (M1+)</span> <a data-asset="darwin_arm64" href="https://github.com/wayneColt/smb-os-desktop/releases/latest/download/smb-os-desktop_darwin_arm64.zip">smb-os-desktop_darwin_arm64.zip</a></li>
+    <li><span class="k">Mac, Intel processor</span> <a data-asset="darwin_amd64" href="https://github.com/wayneColt/smb-os-desktop/releases/latest/download/smb-os-desktop_darwin_amd64.zip">smb-os-desktop_darwin_amd64.zip</a></li>
+    <li><span class="k">Linux (x86-64)</span> <a data-asset="linux_amd64" href="https://github.com/wayneColt/smb-os-desktop/releases/latest/download/smb-os-desktop_linux_amd64.zip">smb-os-desktop_linux_amd64.zip</a></li>
+    <li><span class="k">Linux (ARM64)</span> <a data-asset="linux_arm64" href="https://github.com/wayneColt/smb-os-desktop/releases/latest/download/smb-os-desktop_linux_arm64.zip">smb-os-desktop_linux_arm64.zip</a></li>
+  </ul>
+  <p class="dl-meta">Checksums: <a href="https://github.com/wayneColt/smb-os-desktop/releases/latest/download/SHA256SUMS.txt">SHA256SUMS.txt</a>
+  · exact files for v0.1.0: <a href="https://github.com/wayneColt/smb-os-desktop/releases/tag/v0.1.0">the v0.1.0 release</a>
+  · source: <a href="https://github.com/wayneColt/smb-os-desktop">github.com/wayneColt/smb-os-desktop</a></p>
+
+  <p class="term-label">Or from a terminal. The installer picks the right file, checks it against
+  <code>SHA256SUMS.txt</code> and starts it. macOS and Linux:</p>
+  <pre>curl -fsSL https://github.com/wayneColt/smb-os-desktop/releases/latest/download/install.sh | sh</pre>
+  <p class="term-label">Windows, in PowerShell:</p>
+  <pre>irm https://github.com/wayneColt/smb-os-desktop/releases/latest/download/install.ps1 | iex</pre>
+</section>
+
+<figure>
+  <a href="images/desktop-today-light.png"><img src="images/desktop-today-light.png" width="1440" height="900" loading="lazy"
+       alt="The SMB OS Desktop in a browser, on fictional demo data. Desktop icons on the left are grouped Daily, Money and System. The Today window for Kestrel Auto Care shows last week's brief, 7 of 12 measures off target listed worst first, and tiles for car count, average repair order, gross profit and labor cost against target. The dock along the bottom reads No approvals waiting and AI model off."></a>
+  <figcaption>The Today window for Kestrel Auto Care, one of the two fictional demo businesses.</figcaption>
+</figure>
+
+<h2>Intelligence where the owner works</h2>
+<p>An owner with a few franchise locations runs the business across a stack of tabs: the scheduling
+system, the shop-management or care-management system, the accounting system, the bank's export, the
+franchisor's reporting. Each holds its own slice. The first question of the day, how each location did
+against target and what needs attention, gets answered by hand. And the acts that matter most, payroll,
+payments, reminders to customers, sit in the same tabs, where the click is the permission.</p>
+<p>Business intelligence only helps where the owner is working. Today that is your computer: this download
+and the small program it runs, with nothing sent to anyone else's servers unless you turn on an AI model. Next, the same design on a phone,
+with approvals within thumb reach, and on a web desk. Neither of those is in 0.1.0.</p>
+
+<h2>Two planes, one authority</h2>
+<p>You hold the authority. The agents run in their own plane and hold none: they read, reconcile, prepare
+and draft. Between the two sits a hard gate, and every agent has a tier that decides what happens when
+it is asked to run:</p>
+<ul>
+<li><strong>Tier 0, reading and calculating:</strong> runs at once and writes a receipt.</li>
+<li><strong>Tier 1, a reversible change that stays on your machine</strong> (switching the demo business,
+saving matches, saving drafts): runs at once and writes a receipt.</li>
+<li><strong>Tier 2, money, anything sent outside, anything that can't be undone:</strong> never runs when
+asked. It becomes a proposal bound to one exact action by its fingerprint, the SHA-256 of the
+instruction. Your typed <code>APPROVE</code> opens it once. Change one detail and it is a new proposal
+with a new fingerprint.</li>
+</ul>
+<p>An agent can make a proposal; it has no way to approve one. What each agent may read, what it may write
+and what it may never touch is listed in the Apex, and Lock session stops every agent run and every
+approval until you unlock.</p>
+<p>How 0.1.0 enforces this, plainly: the gate is enforced by the program running on your computer. An
+approved tier-2 act writes its payload to an <code>outbox</code> folder and contacts nothing. There is no
+separate account or sign-in, so anyone who can use this computer can open the desktop and approve; Lock session
+is a pause, not a password.</p>
+
+<h2>What the agents prepare</h2>
+<p>All rule-based; none needs an AI model.</p>
+<table>
+<thead><tr><th>Agent</th><th>What it does</th><th>Tier</th></tr></thead>
+<tbody>
+<tr><td>Morning brief</td><td>A headline, a line per location, and variances against target, worst first</td><td>0</td></tr>
+<tr><td>Payroll pre-check</td><td>Hours against the schedule for each person: overtime, missing punches, unverified visits (home care) or flagged against clocked hours (auto service)</td><td>0</td></tr>
+<tr><td>Bank reconciliation</td><td>Matches bank lines to ledger entries (same amount, dates within 3 days, matching reference), lists what didn't match, suggests entries for fees and interest. Saving the matches is tier 1</td><td>0 / 1</td></tr>
+<tr><td>AR reminders</td><td>Drafts reminder notes for invoices more than 14 days late</td><td>1</td></tr>
+<tr><td>Send reminders</td><td>Sends the drafts</td><td>2</td></tr>
+<tr><td>Submit payroll</td><td>Writes the payroll export</td><td>2</td></tr>
+<tr><td>Franchise rollup</td><td>Revenue, royalty and ad fund for each location, and the franchise total</td><td>0</td></tr>
+</tbody>
+</table>
+
+<div class="shots">
+  <figure>
+    <a href="images/desktop-approvals-night.png"><img src="images/desktop-approvals-night.png" width="1440" height="900" loading="lazy"
+         alt="The Approvals window on the night desk: a Submit payroll proposal from the payroll agent, the exact instruction it will run, its SHA-256 fingerprint, four steps (Declared, Approved, Actuated, Observed) with only the first lit, and an empty field labelled Type APPROVE to run this once."></a>
+    <figcaption>Waiting: a tier-2 proposal, its fingerprint, and the box for APPROVE.</figcaption>
+  </figure>
+  <figure>
+    <a href="images/desktop-approved-receipt-night.png"><img src="images/desktop-approved-receipt-night.png" width="1440" height="900" loading="lazy"
+         alt="The same proposal after APPROVE: marked approved, ran once, all four steps lit, receipt number 9, and the two payroll export files it wrote to the outbox folder, with the line Nothing left this computer."></a>
+    <figcaption>Approved once: the receipt, and the files it wrote to the outbox.</figcaption>
+  </figure>
+</div>
+
+<h2>The Apex: four bands</h2>
+<p>Ctrl+K opens the Apex command surface, laid out in four bands:</p>
+<ul>
+<li><strong>Search:</strong> open any window, find a location, a number, an agent, an approval or a
+receipt. Type a question and its Ask result opens the Ask window with it.</li>
+<li><strong>Operations:</strong> the business right now: each location's worst measure, its alerts, and who
+is on shift.</li>
+<li><strong>Engine &amp; workers:</strong> each agent and its state (ran, needs attention, idle), its tier,
+and a Run button.</li>
+<li><strong>Sovereignty:</strong> approvals waiting, whether the receipt chain is intact, where your data
+lives, whether an AI model is on, and Lock session. "Review what agents may do" lists each agent's tier,
+what it reads, what it writes, what it never touches, and its network access: none.</li>
+</ul>
+<figure>
+  <a href="images/apex-bands-light.png"><img src="images/apex-bands-light.png" width="1440" height="900" loading="lazy"
+       alt="The Apex command surface: a Search bar on top, then three bands. Operations shows each location's worst measure, alerts and who is on shift. Engine & workers lists each agent as ran, needs attention or idle, with its tier and a Run button. Sovereignty, on a dark panel, shows approvals waiting, the receipt chain intact, where the data lives, the AI model off, and the Lock session button."></a>
+  <figcaption>The Apex: Search on top, then Operations, Engine &amp; workers, and Sovereignty.</figcaption>
+</figure>
+<p>To stop: Stop everything, in the Apex's top bar, cancels running requests and closes every window.
+Lock session does the same and then locks the program, so agent runs and approvals are refused until you
+press Unlock session.</p>
+
+<h2>Receipts</h2>
+<p>Every run, proposal, approval, decline and switch of demo business adds a line to
+<code>receipts.jsonl</code>. Each line includes the SHA-256 of the line before it, so changing or
+deleting an earlier line breaks the chain, and the Receipts window says so.</p>
+<p>The chain detects edits. It can't stop someone who can write to the folder from rewriting the whole
+file. If that matters to you, keep a copy somewhere else.</p>
+
+<h2>Engine specifications</h2>
+<ul>
+<li><strong>Program:</strong> one binary, <code>aios</code> (<code>aios.exe</code> on Windows), written in Go
+with the standard library only. Builds for Windows x86-64, macOS Apple silicon and Intel, Linux x86-64
+and ARM64.</li>
+<li><strong>Network:</strong> listens on <code>127.0.0.1</code>, port 7701 or the next free one. Answers only
+requests addressed to <code>127.0.0.1</code> or <code>localhost</code>. Every change must carry a header
+your browser won't let other websites send, and no response allows cross-site reads, so a page you visit
+can't press buttons on your desktop.</li>
+<li><strong>Authority:</strong> tier-2 acts run only through a proposal approved with the typed phrase; a
+fingerprint is used once; while locked, agent runs and approvals are refused.</li>
+<li><strong>Data:</strong> one folder per user (<code>%AppData%</code>, <code>~/Library/Application
+Support</code> or <code>~/.config</code>, under <code>smb-os-desktop</code>), or the folder given with
+<code>--data</code>.</li>
+<li><strong>Receipts:</strong> append-only JSON lines; each record's hash is the SHA-256 of the previous
+hash plus the record.</li>
+<li><strong>AI model:</strong> off unless <code>ANTHROPIC_API_KEY</code> is set when the program starts.
+Then the Ask window uses a Claude model and sends your question and the data it draws on to Anthropic's
+API. Without it, Ask answers from the data with plain rules and lists the numbers it used.</li>
+<li><strong>Downloads:</strong> each zip holds the binary and a short README. <code>SHA256SUMS.txt</code>
+covers all five; both terminal installers check against it before starting anything.</li>
+</ul>
+
+<h2>The first run on macOS and Windows</h2>
+<p>The 0.1.0 files are not code-signed yet. A file downloaded in a browser carries a "from the internet"
+mark, and the system checks unsigned files that carry it. On macOS, open System Settings, then Privacy
+&amp; Security, and click Open Anyway next to the message about <code>aios</code>. On Windows, if
+SmartScreen appears, click More info, then Run anyway. Linux doesn't ask.</p>
+<p>The terminal installers download with <code>curl</code> or PowerShell, which don't add that mark, so
+the prompt doesn't appear; they check the checksum instead. You can read
+<a href="https://github.com/wayneColt/smb-os-desktop/blob/main/scripts/install.sh">install.sh</a> and
+<a href="https://github.com/wayneColt/smb-os-desktop/blob/main/scripts/install.ps1">install.ps1</a>
+before you run them.</p>
+
+<h2>What 0.1.0 does not do</h2>
+<ul>
+<li><strong>It does not connect to your systems.</strong> No scheduling, shop-management or accounting
+system, no bank export. It runs on the two fictional demo businesses only.</li>
+<li><strong>It does not send anything.</strong> Approved tier-2 acts are written to the outbox folder.</li>
+<li><strong>It does not run on a phone or as a web desk yet.</strong> Both are the next step.</li>
+<li><strong>It has no accounts.</strong> Anyone who can use the computer can use the desktop; Lock session
+stops agents and approvals but is not a password.</li>
+<li><strong>The binaries are not signed,</strong> so browser downloads meet the first-run prompt above.
+No automatic updates.</li>
+</ul>
+<p>Every claim on this page is listed with the test, file or link that backs it in the
+<a href="https://github.com/wayneColt/smb-os-desktop/blob/main/marketing/CLAIMS.md">claims ledger</a>.</p>
+
+<p class="receipt-line">Receipt: the release at
+<a href="https://github.com/wayneColt/smb-os-desktop/releases/tag/v0.1.0">github.com/wayneColt/smb-os-desktop/releases/tag/v0.1.0</a>.
+Download it, check it against <code>SHA256SUMS.txt</code>, run it, and open the Receipts window.</p>
+
+<div class="foot">© 2026 WayneColt · Catalytic Computing · <a href="/">waynecolt.com</a> · <a href="/solutions/">All solutions</a></div>
+</main>
+<div class="color-bar-bottom" style="display:flex;height:4px">
+  <span style="flex:1;background:#00B8D4"></span><span style="flex:1;background:#C2185B"></span><span style="flex:1;background:#E8450A"></span><span style="flex:1;background:#0A0A0C"></span><span style="flex:1;background:#00C853"></span><span style="flex:1;background:#9E9E9E"></span>
+</div>
+<script>
+(function () {
+  // GitHub's releases/latest/download/<name> always serves the newest release's file of that name, and
+  // each release carries version-less copies of its zips, so these links never need editing.
+  var BASE = "https://github.com/wayneColt/smb-os-desktop/releases/latest/download/";
+  var LABEL = {
+    windows_amd64: ["Download for Windows", "x86-64 · zip"],
+    darwin_arm64: ["Download for Mac", "Apple silicon · zip"],
+    darwin_amd64: ["Download for Mac", "Intel · zip"],
+    linux_amd64: ["Download for Linux", "x86-64 · zip"],
+    linux_arm64: ["Download for Linux", "ARM64 · zip"]
+  };
+  var MAC_HINT = "Not sure which Mac? Apple menu, then About This Mac: “Chip: Apple M…” is Apple silicon, “Processor: Intel” is Intel. The other file is in the list below.";
+  var nav = window.navigator, ua = nav.userAgent || "";
+  var plat = (nav.userAgentData && nav.userAgentData.platform) || nav.platform || "";
+  var pageUrl = "https://waynecolt.com/solutions/smb-os-desktop/";
+
+  function file(key) { return "smb-os-desktop_" + key + ".zip"; }
+  function pick(key) {
+    var btn = document.getElementById("dl-btn");
+    btn.href = BASE + file(key);
+    btn.firstChild.nodeValue = LABEL[key][0];
+    document.getElementById("dl-sub").textContent = LABEL[key][1] + " · " + file(key);
+    var hint = document.getElementById("dl-hint");
+    if (key.indexOf("darwin") === 0) { hint.textContent = MAC_HINT; hint.hidden = false; }
+    else { hint.hidden = true; }
+  }
+
+  var touchMac = /Mac/.test(plat) && nav.maxTouchPoints > 1; // iPadOS reports itself as a Mac
+  var phone = touchMac || /Android|iPhone|iPad|iPod|Mobile/i.test(ua);
+  if (phone) { document.body.classList.add("is-phone"); }
+  else if (!/CrOS/.test(ua)) { // ChromeOS: no file runs there directly, so offer only the list
+    var key = null;
+    if (/Win/i.test(plat) || /Windows/.test(ua)) key = "windows_amd64";
+    else if (/Mac/i.test(plat) || /Mac OS X/.test(ua)) key = "darwin_arm64";
+    else if (/Linux|X11/i.test(plat + " " + ua)) key = /aarch64|arm64|armv8/i.test(ua + " " + plat) ? "linux_arm64" : "linux_amd64";
+    if (key) {
+      document.body.classList.add("is-computer");
+      document.querySelector(".dl-primary").hidden = false;
+      pick(key);
+      var mac = key.indexOf("darwin") === 0, linux = key.indexOf("linux") === 0;
+      if ((mac || linux) && nav.userAgentData && nav.userAgentData.getHighEntropyValues) {
+        nav.userAgentData.getHighEntropyValues(["architecture"]).then(function (v) {
+          var arm = v.architecture === "arm";
+          if (mac) pick(arm ? "darwin_arm64" : "darwin_amd64");
+          if (linux) pick(arm ? "linux_arm64" : "linux_amd64");
+        }).catch(function () {});
+      } else if (mac) {
+        // Safari and Firefox don't report the processor; an Intel Mac's GPU name gives it away.
+        try {
+          var gl = document.createElement("canvas").getContext("webgl");
+          var ext = gl && gl.getExtension("WEBGL_debug_renderer_info");
+          var r = ext ? String(gl.getParameter(ext.UNMASKED_RENDERER_WEBGL)) : "";
+          if (/Intel|AMD|Radeon|NVIDIA/i.test(r)) pick("darwin_amd64");
+        } catch (e) {}
+      }
+    }
+  }
+
+  var share = document.querySelector("[data-share]"), copy = document.querySelector("[data-copy]");
+  share.addEventListener("click", function () {
+    if (nav.share) { nav.share({ title: "SMB OS Desktop", url: pageUrl }).catch(function () {}); }
+    else { location.href = "mailto:?subject=" + encodeURIComponent("SMB OS Desktop download") + "&body=" + encodeURIComponent(pageUrl); }
+  });
+  copy.addEventListener("click", function () {
+    var done = function () { copy.textContent = "Link copied"; };
+    if (nav.clipboard) { nav.clipboard.writeText(pageUrl).then(done, function () {}); }
+    else { window.prompt("Copy this link:", pageUrl); }
+  });
+})();
+</script>
+</body>
+</html>

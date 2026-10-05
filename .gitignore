@@ -1,0 +1,8 @@
+/dist/
+/bin/
+/aios
+/aios.exe
+*.test
+.DS_Store
+/.dist-build.*
+/.dist-old.*

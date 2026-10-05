@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="SMB OS Desktop · Business Intelligence: an operator's desktop for a small multi-location franchise, running on this computer.">
+<title>SMB OS Desktop · Business Intelligence</title>
+<link rel="icon" href="./favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="./ds/tokens.css">
+<link rel="stylesheet" href="./ds/fonts.css">
+<link rel="stylesheet" href="./ds/components.css">
+<link rel="stylesheet" href="./app.css">
+<script src="./app.js"></script>
+</head>
+<body class="wx-base">
+<div id="app" class="app">
+  <main id="desk" class="desk wx-desk" aria-label="Desktop">
+    <noscript><p class="nojs wx-card">NO_SIGNAL · scripts are off. SMB OS Desktop needs JavaScript to read from aios.</p></noscript>
+  </main>
+  <div id="dock-host" class="dock-host"></div>
+</div>
+<div id="apex-host" class="apex-host" hidden></div>
+
+<section id="narrow" class="narrow" aria-labelledby="narrow-title">
+  <p class="wx-eyebrow">SMB OS Desktop · Business Intelligence</p>
+  <h1 id="narrow-title" class="wx-display">SMB OS Desktop runs on your computer</h1>
+  <p class="wx-body">It is business intelligence for running a multi-location franchise: today's numbers per location, a payroll check,
+    bank reconciliation, the franchise rollup, and an approvals gate for anything that moves money. This window is too
+    narrow for it. Widen the window, or open it on a computer.</p>
+  <figure class="narrow-shot">
+    <img src="./img/desktop-preview.png" loading="lazy" width="720" height="450"
+      alt="The SMB OS Desktop: desktop icons on the left, the Today window with KPI tiles per location, and the dock along the bottom.">
+    <figcaption class="wx-caption">Picture of the desktop · fictional demo data</figcaption>
+  </figure>
+  <p class="narrow-link wx-row"><span id="narrow-lamp" class="wx-lamp unknown" aria-hidden="true"></span><span id="narrow-link" class="wx-mono">aios: NO_SIGNAL · not yet read</span></p>
+  <p><span class="wx-tag hold is-strong">Fictional demo data</span></p>
+</section>
+
+<div id="live" class="sr-only" role="status" aria-live="polite"></div>
+</body>
+</html>

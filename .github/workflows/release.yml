@@ -1,0 +1,80 @@
+name: release
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+
+      - name: go vet
+        run: go vet ./...
+      - name: go test (race)
+        run: go test -race -count=1 ./...
+
+      - name: Build every platform
+        run: bash scripts/build_release.sh "${GITHUB_REF_NAME#v}"
+
+      - name: Verify checksums and the linux/amd64 binary
+        run: |
+          cd dist
+          sha256sum -c SHA256SUMS.txt
+          unzip -q -o "smb-os-desktop_${GITHUB_REF_NAME#v}_linux_amd64.zip" -d "$RUNNER_TEMP/smoke"
+          test "$("$RUNNER_TEMP/smoke/aios" --version)" = "aios ${GITHUB_REF_NAME#v}"
+
+      - name: Write release notes
+        run: |
+          version="${GITHUB_REF_NAME#v}"
+          base="https://github.com/${GITHUB_REPOSITORY}/releases/latest/download"
+          {
+            echo "SMB OS Desktop ${version}: one downloaded file, a local runtime on 127.0.0.1, your data on your computer. Ships with fictional demo data."
+            echo
+            echo "### Install from a terminal (checks the SHA-256 for you)"
+            echo
+            echo "macOS and Linux:"
+            echo '```'
+            echo "curl -fsSL ${base}/install.sh | sh"
+            echo '```'
+            echo "Windows (PowerShell):"
+            echo '```'
+            echo "irm ${base}/install.ps1 | iex"
+            echo '```'
+            echo
+            echo "### Or download a zip"
+            echo
+            echo "Unzip it and double-click \`aios\` (\`aios.exe\` on Windows). This build is not code-signed yet: on first run macOS and Windows will ask you to confirm, and \`README.txt\` in the zip explains how. Command-line downloads (above) are not marked as coming from the internet, so they skip that prompt; the installers verify the checksum instead."
+            echo
+            echo "### SHA-256"
+            echo
+            echo '```'
+            cat dist/SHA256SUMS.txt
+            echo '```'
+          } > "$RUNNER_TEMP/notes.md"
+
+      - name: Publish the GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          tag="$GITHUB_REF_NAME"
+          assets=(dist/*.zip dist/SHA256SUMS.txt dist/install.sh dist/install.ps1)
+          if gh release view "$tag" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            gh release upload "$tag" "${assets[@]}" --repo "$GITHUB_REPOSITORY" --clobber
+          else
+            flags=()
+            case "$tag" in *-*) flags+=(--prerelease) ;; esac
+            gh release create "$tag" "${assets[@]}" --repo "$GITHUB_REPOSITORY" \
+              --title "SMB OS Desktop ${tag#v}" --notes-file "$RUNNER_TEMP/notes.md" --verify-tag "${flags[@]}"
+          fi
